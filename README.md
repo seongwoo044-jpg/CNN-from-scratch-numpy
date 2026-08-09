@@ -19,4 +19,4 @@ This is a Convolutional Neural Network (CNN) project implemented from the ground
 ## Results
 * **Dataset:** MNIST Hand-written Digits (28x28)
 * **Optimization:** Mini-batch SGD (Batch size: 100, Iterations: 1,000)
-* **Performance:** 88.4% accuracy after 1,000 iterations of training
+* **Performance:** 88.4% accuracy about 1000 test datas after 1,000 iterations of training
