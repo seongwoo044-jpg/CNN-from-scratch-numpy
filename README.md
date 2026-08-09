@@ -1,22 +1,24 @@
 # CNN from Scratch with NumPy
 
-This is a Convolutional Neural Network (CNN) project implemented from the ground up using only Python and NumPy, without any frameworks such as PyTorch or TensorFlow.
+This project is a Convolutional Neural Network (CNN) implemented from the ground up using only Python and NumPy, without any frameworks such as PyTorch or TensorFlow.
 
 ## Key Features & Implementation Details
 
 * **im2col/col2im base**
-  * I improved the speed of Convolution and Pooling operations by converting $N \times C \times H \times W$ tensors into matrices.
+  * Transformed high-dimensional tensors ($N \times C \times H \times W$) into 2D matrices to accelerate Convolution and Spatial Pooling operations via optimized matrix multiplication (`np.dot`).
 * **Backpropagation & Chain Rule calculation**
-  * I calculated the differentiation of the backpropagation formulas for each layer. (Conv2D, ReLU, MaxPool2D, FC, SoftmaxWithLoss)
+  * Derived and implemented explicit `Forward` and `Backward` passes for all custom layers: `Conv2D`, `ReLU`, `MaxPool2D`, `FC`, and `SoftmaxWithLoss`.
 * **He Normal Initialization**
-  * I applied He Normal Initialization($\sqrt{2/n}$) that optimized at ReLU function.
+  * Applied He Normal Initialization($\sqrt{2/n}$) customized for ReLU activation functions
+* **Dynamic Network Architecture (`_build_network`)**
+  * Programmed an adaptive architecture setup that dynamically constructs pooling, multi-stage convolutional layers, and linear classifier dimensions based on input tensor shapes.
 
 ## Stack
 * Python 3
 * NumPy
-* Scikit-Learn (MNIST data sets)
+* Scikit-Learn (`fetch_openml` for loading MNIST)
 
 ## Results
-* **Dataset:** MNIST Hand-written Digits (28x28)
+* **Dataset:** MNIST Hand-written Digits ($1 \times 28 \times 28$)
 * **Optimization:** Mini-batch SGD (Batch size: 100, Iterations: 1,000)
-* **Performance:** 88.4% accuracy about 1000 test datas after 1,000 iterations of training
+* **Performance:** Acheived **90.50% accuracy** on 1000 test samples after 1,000 iterations of training
