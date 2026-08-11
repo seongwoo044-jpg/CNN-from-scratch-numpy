@@ -20,11 +20,13 @@ This project implemented backpropagation by deriving partial derivative formulas
 * **`Conv2D` Layer Gradient:**
 
   4D Tensor Index Form:
-  $$\frac{\partial L}{\partial W_{out\_c, in\_c, h, w}} = \sum_{n} \sum_{out\_h} \sum_{out\_w} X_{n, in\_c, h + out\_h, w + out\_w} \cdot \frac{\partial L}{\partial Z_{n, out\_c, out\_h, out\_w}}$$
+  $$\frac{\partial L}{\partial W_{out\_c, in\_c, h, w}} = \sum_{N} \sum_{out\_h} \sum_{out\_w} X_{n, in\_c, h + out\_h, w + out\_w} \cdot \frac{\partial L}{\partial Z_{n, out\_c, out\_h, out\_w}}$$
+  $$\frac{\partial L}{\partial X_{n, in\_c, h + out\_h, w + out\_w}} = \sum_{out\_c} W_{out\_c, in\_c, h, w} \cdot \frac{\partial L}{\partial Z_{n, out\_c, out\_h, out\_w}}$$
 
   Using `im2col` to $X$ & Reshaping $\delta$ (= $\frac{\partial L}{\partial Z}$) and $W$:
   * $X \rightarrow X_{\text{col}}$
   * $\delta \rightarrow \delta_{\text{col}}$
+  * $T \rightarrow T_{\text{col}}$
 
   $$\frac{\partial L}{\partial W} = \delta_{\text{col}}^T \cdot X_{\text{col}} \quad \xrightarrow{\text{reshape}} \quad (\text{Shape: } out\_c, in\_c, h, w)$$
 
