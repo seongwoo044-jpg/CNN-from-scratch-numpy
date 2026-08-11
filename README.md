@@ -22,7 +22,7 @@ This project implemented backpropagation by deriving partial derivative formulas
   4D Tensor Index Form:
   $$\frac{\partial L}{\partial W_{out\_c, in\_c, h, w}} = \sum_{n} \sum_{out\_h} \sum_{out\_w} X_{n, in\_c, h + out\_h, w + out\_w} \cdot \frac{\partial L}{\partial Z_{n, out\_c, out\_h, out\_w}}$$
 
-  Using `im2col` & Reshaping ($\delta = \frac{\partial L}{\partial Z}$):
+  Using `im2col` to $X$ & Reshaping $\delta$ (= $\frac{\partial L}{\partial Z}$) and $W$:
   * $X \rightarrow X_{\text{col}}$
   * $\delta \rightarrow \delta_{\text{col}}$
 
