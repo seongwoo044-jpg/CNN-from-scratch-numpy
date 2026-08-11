@@ -17,7 +17,18 @@ This project is a Convolutional Neural Network (CNN) implemented from the ground
 
 This project implemented backpropagation by deriving partial derivative formulas based on the Chain Rule.
 
-* **'Conv2D' Layer Gradient:**
+* **`Conv2D` Layer Gradient:**
+
+  4D Tensor Index Form:
+  $$\frac{\partial L}{\partial W_{out\_c, in\_c, h, w}} = \sum_{n} \sum_{out\_h} \sum_{out\_w} X_{n, in\_c, h + out\_h, w + out\_w} \cdot \frac{\partial L}{\partial Z_{n, out\_c, out\_h, out\_w}}$$
+
+  Using `im2col` & Reshaping ($\delta = \frac{\partial L}{\partial Z}$):
+  * $X \rightarrow X_{\text{col}}$
+  * $\delta \rightarrow \delta_{\text{col}}$
+
+  $$\frac{\partial L}{\partial W} = \delta_{\text{col}}^T \cdot X_{\text{col}} \quad \xrightarrow{\text{reshape}} \quad (\text{Shape: } out\_c, in\_c, h, w)$$
+
+  $$\frac{\partial L}{\partial X} = W_{\text{col}} \cdot \delta_{\text{col}} \quad \xrightarrow{\text{col2im}} \quad (\text{Shape: } N, in\_c, H, W)$$
 
 * **'FC' Layer Gradient:**
 
