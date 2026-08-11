@@ -17,8 +17,8 @@ This project is a Convolutional Neural Network (CNN) implemented from the ground
 
 This project implemented backpropagation by deriving partial derivative formulas based on the Chain Rule.
 
-* **Convolution Layer Gradient:**
-  $$\frac{\partial L}{\partial W} = X * \frac{\partial L}{\partial Y}, \quad \frac{\partial L}{\partial X} = \frac{\partial L}{\partial Y} * W_{rotated180^\circ}$$
+* **'Conv2D' Layer Gradient:**
+  $$\frac{\partial L}{\partial W} = X  \frac{\partial L}{\partial Y}, \quad \frac{\partial L}{\partial X} = \frac{\partial L}{\partial Y}  W^{T}$$
 
 * **Softmax with Cross-Entropy Loss:**
   $$\frac{\partial L}{\partial z_i} = \hat{y}_i - y_i$$
