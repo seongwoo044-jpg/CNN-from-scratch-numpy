@@ -22,6 +22,7 @@ This project implemented backpropagation by deriving partial derivative formulas
   4D Tensor Index Form:
 
   $$\frac{\partial L}{\partial W_{out\_c, in\_c, h, w}} = \sum_{N} \sum_{out\_h} \sum_{out\_w} X_{n, in\_c, h + out\_h, w + out\_w} \cdot \frac{\partial L}{\partial Z_{n, out\_c, out\_h, out\_w}}$$
+  
   $$\frac{\partial L}{\partial X_{n, in\_c, h + out\_h, w + out\_w}} = \sum_{out\_c} W_{out\_c, in\_c, h, w} \cdot \frac{\partial L}{\partial Z_{n, out\_c, out\_h, out\_w}}$$
 
   Using `im2col` to $X$ & Reshaping $\delta$ (= $\frac{\partial L}{\partial Z}$) and $W$:
@@ -33,7 +34,6 @@ This project implemented backpropagation by deriving partial derivative formulas
 
   $$\frac{\partial L}{\partial X} = W_{\text{col}} \cdot \delta_{\text{col}} \quad \xrightarrow{\text{col2im}} \quad (\text{Shape: } N, in\_c, H, W)$$
 
-* **'FC' Layer Gradient:**
 
 * **`SoftmaxWithLoss` Loss & Gradient:**
 
@@ -44,7 +44,6 @@ $$\frac{\partial y_i}{\partial z_j} = \begin{cases} y_i (1 - y_i) & \text{if } i
 $$L = -\sum_{i} t_i log (y_i)$$
 
 $$\frac{\partial L}{\partial z_i} = -\sum_{j} \frac{t_j}{y_j} \frac{\partial y_j}{\partial z_i} = y_i - t_i$$
-
 
 
 ## Stack
