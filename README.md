@@ -23,19 +23,12 @@ This project implemented backpropagation by deriving partial derivative formulas
 
 * **`SoftmaxWithLoss` Loss & Gradient:**
   $$
-  y_i = \text{Softmax}(z_i) = \frac{e^{z_i}}{\sum_{j} e^{z_j}}
-  $$
-
-  $$
-  \frac{\partial y_i}{\partial z_j} = \begin{cases} y_i (1 - y_i) & \text{if } i = j \\ -y_i y_j & \text{if } i \neq j \end{cases}
-  $$
-
-  $$
-  L = -\sum_{i} t_i \log(y_i)
-  $$
-
-  $$
-  \frac{\partial L}{\partial z_i} = -\sum_{j} \frac{t_j}{y_j} \frac{\partial y_j}{\partial z_i} = y_i - t_i
+  \begin{align*}
+  y_i &= \text{Softmax}(z_i) = \frac{e^{z_i}}{\sum_{j} e^{z_j}} \\[8pt]
+  \frac{\partial y_i}{\partial z_j} &= \begin{cases} y_i (1 - y_i) & \text{if } i = j \\ -y_i y_j & \text{if } i \neq j \end{cases} \\[8pt]
+  L &= -\sum_{i} t_i \log(y_i) \\[8pt]
+  \frac{\partial L}{\partial z_i} &= -\sum_{j} \frac{t_j}{y_j} \frac{\partial y_j}{\partial z_i} = y_i - t_i
+  \end{align*}
   $$
 
 
