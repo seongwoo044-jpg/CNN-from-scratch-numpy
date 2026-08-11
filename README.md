@@ -13,7 +13,7 @@ This project is a Convolutional Neural Network (CNN) implemented from the ground
 * **Dynamic Network Architecture (`_build_network`)**
   * Programmed an adaptive architecture setup that dynamically constructs pooling, multi-stage convolutional layers, and linear classifier dimensions based on input tensor shapes.
 
- ## Mathematical Derivation (Backpropagation)
+## Mathematical Derivation (Backpropagation)
 
 This project implemented backpropagation by deriving partial derivative formulas based on the Chain Rule.
 
@@ -37,6 +37,7 @@ This project implemented backpropagation by deriving partial derivative formulas
   $$
   \frac{\partial L}{\partial z_i} = -\sum_{j} \frac{t_j}{y_j} \frac{\partial y_j}{\partial z_i} = y_i - t_i
   $$
+
 
 ## Stack
 * Python 3
