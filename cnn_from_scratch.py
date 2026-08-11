@@ -62,7 +62,7 @@ class Conv2D:
         self.b = np.zeros(outc)
         self.X = None
         self.X_col = None
-        self.W_row = None
+        self.W_col = None
         self.dW = None
         self.db = None
 
@@ -74,8 +74,8 @@ class Conv2D:
 
         # im2col (N * out_h * out_w, inc * h * w)
         self.X_col = im2col(X, self.h, self.w, self.stride, self.pad)
-        self.W_row = self.W.reshape(self.outc, -1)
-        out = np.dot(self.X_col, self.W_row.T) + self.b
+        self.W_col = self.W.reshape(self.outc, -1)
+        out = np.dot(self.X_col, self.W_col.T) + self.b
         out = out.reshape(N, out_h, out_w, self.outc).transpose(0, 3, 1, 2)
         return out
 
@@ -89,12 +89,12 @@ class Conv2D:
         # db (outc,)
         self.db = np.sum(dout_reshaped, axis=0)
 
-        # dW (outc, inc * H * W) -> reshape (outc, inc, H, W)
+        # dW (outc, inc * h * w) -> reshape (outc, inc, h, w)
         self.dW = np.dot(dout_reshaped.T, self.X_col)
         self.dW = self.dW.reshape(self.outc, self.inc, self.h, self.w)
 
         # dX_col (N * outh * outw, inc * H * W)
-        dX_col = np.dot(dout_reshaped, self.W_row)
+        dX_col = np.dot(dout_reshaped, self.W_col)
 
         # col2im (N, inc, H, W)
         dX = col2im(dX_col, self.X.shape, self.h, self.w, self.stride, self.pad)
