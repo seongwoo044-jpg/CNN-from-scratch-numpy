@@ -51,7 +51,16 @@ $$\frac{\partial L}{\partial z_i} = -\sum_{j} \frac{t_j}{y_j} \frac{\partial y_j
 * NumPy
 * Scikit-Learn (`fetch_openml` for loading MNIST)
 
+
 ## Results
 * **Dataset:** MNIST Hand-written Digits ($1 \times 28 \times 28$)
 * **Optimization:** Mini-batch SGD (Batch size: 100, Iterations: 1,000)
 * **Performance:** Acheived **90.50% accuracy** on 1000 test samples after 1,000 iterations of training
+
+
+## What I Learned
+* Implementing backpropagation helped me understand neural network training as a chain of partial derivatives and the chain rule.
+* Implementing `im2col` and `col2im` was more challenging than the mathematical derivation because of the required tensor reshaping and indexing.
+* I initially considered implementing convolution with nested loops, but switched to `im2col` to take advantage of NumPy's vectorized matrix operations.
+* Through this implementation, I was able to understand the overall flow of CNN training, from input data and convolution to loss calculation and parameter updates.
+* The main goal of this project was not to maximize accuracy, but to understand how a CNN works internally by implementing its core components from scratch.
