@@ -22,6 +22,7 @@ This project implemented backpropagation by deriving partial derivative formulas
 * **'FC' Layer Gradient:**
 
 * **`SoftmaxWithLoss` Loss & Gradient:**
+
   $$
   \begin{align*}
   y_i &= \text{Softmax}(z_i) = \frac{e^{z_i}}{\sum_{j} e^{z_j}} \\[8pt]
