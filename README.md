@@ -28,7 +28,8 @@ y_i = \text{Softmax}(z_i) = \frac{e^{z_i}}{\sum_{j} e^{z_j}}
 $$
 
 $$
-\frac{\partial y_i}{\partial z_j} = \begin{cases} y_i (1 - y_i) & \text{if } i = j \\ -y_i y_j & \text{if } i \neq j \end{cases}
+\frac{\partial y_i}{\partial z_j} = \begin{cases} y_i (1 - y_i) & \text{if } i = j 
+\\ -y_i y_j & \text{if } i \neq j \end{cases}
 $$
 
 $$
